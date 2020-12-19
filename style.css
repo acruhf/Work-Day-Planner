@@ -39,7 +39,7 @@ textarea{
   border-top: 1px solid white;;
 }
 
-#hour {
+.hour {
   background:transparent;
   color: #CFD186;
   border-style: inset;
@@ -50,16 +50,19 @@ textarea{
 .past {
   background-color: #CFD186;
   color: black;
+  width: 840px;
 }
 
 .present {
   background-color: #E3655B;
   color: white;
+  width: 840px;
 }
 
 .future {
   background-color: #5B8C5A;
   color: white;
+  width: 840px;
 }
 
 .saveBtn {
