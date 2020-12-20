@@ -9,7 +9,7 @@ For this assignment I made a workday hourly task list with a dynamically generat
 [https://github.com/acruhf/Work-Day-Planner]
 
 ### Preview 
-![screenshots](assets/Work_Day_Scheduler.gif "Scheduler Gif")
+![screenshots](Assets/Work_Day_Scheduler.gif "Scheduler Gif")
 
 #### Credits
 This project was made with some collaboration from Amanda Wiehrs.
