@@ -77,20 +77,22 @@ var timeSlot = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('
 // loads header date
 getHeaderDate();
 
+
 // creates the visuals for the scheduler body
 
 for (let i = 0; i < myDay.length; i++) {
     // creates time column
     var hourField = $("<div>");
     hourField.text(myDay[i].hour + myDay[i].meridian);
+    hourField.attr("id", myDay[i].id);
     hourField.addClass("col-md-2 hour");
     $("#timeTable").append(hourField);
 
     // creates schdeduler data column
     var hourPlan = $("<textarea>");
     hourPlan.addClass("col-md-9 input textarea");
-    hourPlan.text("");
-    hourPlan.attr("id", myDay[i].id);
+    hourPlan.text(timeSlot[i]||"");
+    //hourPlan.attr("id", i);
     if (myDay[i].time < moment().format("HH")) {
         hourPlan.addClass("past");
     }
@@ -104,7 +106,7 @@ for (let i = 0; i < myDay.length; i++) {
 
     //creates save button
     
-    var saveButton = $("<button>");
+    var saveButton = $(`<button id=${i}>`);
     saveButton.addClass("col-md-1 saveBtn");
     var saveIcon = $(saveButton).html("<i class='far fa-save'></i>");
     saveIcon.append(saveButton);
@@ -112,12 +114,17 @@ for (let i = 0; i < myDay.length; i++) {
 
 }
 
+
 // saves data to be used in localStorage
 $(".saveBtn").on("click", function(event) {
     event.preventDefault();
     var id = $(this).attr("id");
     var value = $(this).prev().val();
-    timeSlot[id]= value; 
+    console.log("id: ",id)
+    console.log("value: ",value)
+    timeSlot[id]= value;
+    console.log("timeslot: ", JSON.stringify(timeSlot))
     localStorage.setItem('tasks', JSON.stringify(timeSlot));
+    
 
 })
